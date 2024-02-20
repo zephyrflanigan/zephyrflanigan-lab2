@@ -20,25 +20,26 @@ abstract class Thing {
 
       // EEEEEK! STATIC METHODS!!! PLEASE FIND THEM A BETTER HOME.
 
-    public void rightTurn(Thing t) {
-        t.dir = (t.dir + 1) % 4;
+    public void rightTurn() {
+        dir = (dir + 1) % 4;
     }
 
-    public void leftTurn(Thing t) {
-        t.dir = (t.dir + 3) % 4;
+    public void leftTurn() {
+        dir = (dir + 3) % 4;
     }
 
-    public void step(Thing t) {
+    public void step() {
         final int[] dc = {
             0, 1, 0, -1
             }, dr = {
             1, 0, -1, 0
         };
-        t.row += dr[t.dir];
-        t.col += dc[t.dir];
+        row += dr[dir];
+        col += dc[dir];
     }
 
-    public abstract void maybeTurn(Random rand, Thing t);
+    public abstract void maybeTurn(Random rand);
+
 
 
 }

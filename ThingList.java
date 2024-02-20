@@ -21,7 +21,7 @@ public class ThingList{
     //polymorphism: THING can be called as ThingA or ThingB
     //ex. Thing myThing = new ThingA();
 
-    private void addThing(Thing t) {
+    public void addThing(Thing t) {
         if (head == null) {
             head = new Node(t);
             if(t instanceof TypeA) {
@@ -83,13 +83,8 @@ public class ThingList{
     public void moveAll(Random r) {
         //Node temp = head;
         for(Node T = head; T != null; T = T.next) {
-            if(T.data instanceof TypeA)
-                T.data.maybeTurn(r, T.data);
-            else if(T.data instanceof TypeB)
-                T.data.maybeTurn(r, T.data);
-            else if(T.data instanceof TypeC)
-                T.data.maybeTurn(r, T.data);
-            T.data.step(T.data);
+            T.data.maybeTurn(r);
+            T.data.step();
         }
 
     }
