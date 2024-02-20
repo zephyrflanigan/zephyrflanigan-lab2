@@ -10,14 +10,13 @@ public class DotChaser {
     ThingList list = new ThingList();
     Random rand = new Random(System.currentTimeMillis());
 
-
     // INSTEAD OF A NODE, CREATE SOMETHING MORE USER-FRIENDLY.
     //Node L = null;
     //int count = 0;
-      int N = 200;
+      int N = 300;
       if( args.length != 0 )
         N = Integer.parseInt(args[0]);
-        int count = 0;
+      int count = 0;
         while(true) {
           if(count % N == 0) {
             list.addAll();
@@ -25,7 +24,7 @@ public class DotChaser {
           }
           list.printAll();
           list.moveAll(rand);
-          
+        
         }
     //list.addAll(args);
     //list.printAll();

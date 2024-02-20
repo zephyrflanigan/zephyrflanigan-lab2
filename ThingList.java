@@ -25,69 +25,42 @@ public class ThingList{
         if (head == null) {
             head = new Node(t);
             if(t instanceof TypeA) {
-                head.data = new TypeA();
                 head.data.row = 45;
                 head.data.col = 50;
                 head.data.lab = 'r';
             } else if (t instanceof TypeB) {
-                head.data = new TypeB();
                 head.data.row = 55;
                 head.data.col = 50;
                 head.data.lab = 'b';
             }
             else if (t instanceof TypeC) {
-                head.data = new TypeC();
-                head.data.row = 65;
+                head.data.row = 50;
                 head.data.col = 50;
                 head.data.lab = 'y';
             }
-        }
-        for(Node T = head; T != null; T = T.next) {
-            //System.out.println("hj");
-            T = new Node(t);
-                if(t instanceof TypeA) {
-                head.data = new TypeA();
-                head.data.row = 45;
-                head.data.col = 50;
-                head.data.lab = 'r';
-            } else if (t instanceof TypeB) {
-                head.data = new TypeB();
-                head.data.row = 55;
-                head.data.col = 50;
-                head.data.lab = 'b';
-            }
-            else if (t instanceof TypeC) {
-                head.data = new TypeC();
-                head.data.row = 65;
-                head.data.col = 50;
-                head.data.lab = 'y';
-            }
-        }
-            Node temp = head.next;
-            while(temp.next != null) {
+        } else {
+            Node temp = head;
+            Node nextThing = new Node(t);
+             while(temp.next != null) {
                 temp = temp.next;
-                //System.out.println("j");
             }
-            temp = new Node(t);
-               if(t instanceof TypeA) {
-                temp.data = new TypeA();
-                temp.data.row = 45;
-                temp.data.col = 50;
-                temp.data.lab = 'r';
+            temp.next = nextThing;
+            if(t instanceof TypeA) {
+                nextThing.data.row = 45;
+                nextThing.data.col = 50;
+                nextThing.data.lab = 'r';
             } else if (t instanceof TypeB) {
-                temp.data = new TypeB();
-                temp.data.row = 55;
-                temp.data.col = 50;
-                temp.data.lab = 'b';
+                nextThing.data.row = 55;
+                nextThing.data.col = 50;
+                nextThing.data.lab = 'b';
             }
             else if (t instanceof TypeC) {
-                temp.data = new TypeC();
-                temp.data.row = 65;
-                temp.data.col = 50;
-                temp.data.lab = 'y';
+                nextThing.data.row = 50;
+                nextThing.data.col = 50;
+                nextThing.data.lab = 'y';
             }
-         
-
+        }
+    
     }
     
     private String toString(Node T) {
@@ -98,20 +71,25 @@ public class ThingList{
     public void addAll() {
 
         TypeA tA = new TypeA();
-        addThing(tA);
         TypeB tB = new TypeB();
-        addThing(tB);
         TypeC tC = new TypeC();
+       
+        addThing(tA);
+        addThing(tB);
         addThing(tC);
-
+     
     }
     
     public void moveAll(Random r) {
-        Node temp = head;
-        while(temp.next != null) {
-            temp.data.maybeTurn(r, temp.data);
-            temp.data.step(temp.data);
-            temp = temp.next;
+        //Node temp = head;
+        for(Node T = head; T != null; T = T.next) {
+            if(T.data instanceof TypeA)
+                T.data.maybeTurn(r, T.data);
+            else if(T.data instanceof TypeB)
+                T.data.maybeTurn(r, T.data);
+            else if(T.data instanceof TypeC)
+                T.data.maybeTurn(r, T.data);
+            T.data.step(T.data);
         }
 
     }
