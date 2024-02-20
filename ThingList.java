@@ -1,11 +1,6 @@
 import java.util.*;
 public class ThingList{
-      /**
-   * YOU'LL NEED TO PUT THIS SOMEWHERE ELSE
-   * HINT: WOULDN'T IT BE NICE TO HAVE A LIST OR QUEUE SO THAT
-   *       WE DON'T HAVE TO USE NODES HERE?
-   * This class is for linked lists of Thing's
-   */
+      
     private class Node {
         private Thing data;
         private Node  next;
@@ -18,8 +13,7 @@ public class ThingList{
 
     private Node head;
 
-    //polymorphism: THING can be called as ThingA or ThingB
-    //ex. Thing myThing = new ThingA();
+
 
     public void addThing(Thing t) {
         if (head == null) {
@@ -67,7 +61,7 @@ public class ThingList{
         return (T.data.row + " " + T.data.col + " " + T.data.lab);
     }
 
-    //lets DotChaser implement row and col for thing a or thing b
+
     public void addAll() {
 
         TypeA tA = new TypeA();
@@ -96,11 +90,6 @@ public class ThingList{
        System.out.println("done");
 
 
-        /*while(temp.next != null) {
-            System.out.println(toString(temp));
-            System.out.println("done");
-            temp = temp.next;        
-        }*/
         System.out.flush();
     }
 
