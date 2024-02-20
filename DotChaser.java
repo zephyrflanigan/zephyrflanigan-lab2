@@ -11,18 +11,18 @@ public class DotChaser {
     Random rand = new Random(System.currentTimeMillis());
 
 
-      int N = 300;
+      int N = 200;
       if( args.length != 0 )
         N = Integer.parseInt(args[0]);
       int count = 0;
         while(true) {
           if(count % N == 0) {
             list.addAll();
-            count++;
+            
           }
           list.printAll();
           list.moveAll(rand);
-        
+          count++;
         }
    
   }
