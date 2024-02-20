@@ -1,26 +1,45 @@
 import java.util.*;
 public class TypeC extends Thing {
+  public int timeSinceLast;
 
     public void maybeTurn(Random rand) {
-    //t = new TypeC();
-    int i = rand.nextInt(5);
-      if (i == 1) {
-        super.leftTurn();
-        row+=10;
-      }
 
-      if (i == 2) {
-        super.leftTurn();
-        row-=10;
-      }
-      if(i == 3) {
-        super.rightTurn();
-        row+=10;
-      }
-         if(i == 4) {
-        super.rightTurn();
-        row-=10;
-      }
-    }
+        int i = rand.nextInt(3);
+        timeSinceLast++;
+        if (timeSinceLast == 2) {
+          if(i == 1) {
+            super.rightTurn();
+            //super.step();
+            row++;
+            super.rightTurn();
+            //super.step();
+            col--;
+            super.leftTurn();
+            //super.step();
+            row++;
+            super.rightTurn();
+            //super.step();
+            col--;
+          }
 
-}
+          if(i == 2) {
+            super.leftTurn();
+            row--;
+            super.leftTurn();
+            col++;
+            super.rightTurn();
+            row--;
+            super.leftTurn();
+            col++;
+           
+
+        }
+
+        timeSinceLast = 0;
+        } 
+
+
+          
+        }
+  
+  }
