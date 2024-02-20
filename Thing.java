@@ -1,4 +1,5 @@
-public class Thing {
+import java.util.*;
+abstract class Thing {
     /**
    * A "Thing" moves in a grid world. A TypeA Thing randomly
    * decides to turn left or right (or not turn) every "round",
@@ -10,12 +11,15 @@ public class Thing {
 
     // dir: 0=North, 1=East, 2=South, 3=West.
     // timeSinceLast: this is only important for "TypeB" Things.
-    public static Random rand = new Random(System.currentTimeMillis());
-    public int  row, col, dir;
-    public char lab = 'r';
-    public boolean isTypeB;
+    public Random rand = new Random(System.currentTimeMillis());
+    protected int row;
+    protected int col;
+    protected int dir;
+    //public boolean isTypeB;
+    protected char lab;
 
       // EEEEEK! STATIC METHODS!!! PLEASE FIND THEM A BETTER HOME.
+
     public void rightTurn(Thing t) {
         t.dir = (t.dir + 1) % 4;
     }
@@ -33,6 +37,8 @@ public class Thing {
         t.row += dr[t.dir];
         t.col += dc[t.dir];
     }
+
+    public abstract void maybeTurn(Random rand, Thing t);
 
 
 }
